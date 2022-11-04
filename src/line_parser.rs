@@ -233,7 +233,7 @@ fn parse_line(line: String, prev_state: &str) -> Result<ParseR, ParseError> {
     // "\ No newline at end of file"
     if ["chunk_header", "line_diff"].contains(&prev_state) {
         if NO_NEWLINE.is_match(line.as_str()) {
-            let mode = "NO_NEWLINE".to_string();
+            let mode = "no_newline".to_string();
             let captures = captures_to_map(&NO_NEWLINE, &line);
             return Ok((mode, captures));
         } else {
